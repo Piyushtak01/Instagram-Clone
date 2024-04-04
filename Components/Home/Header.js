@@ -21,6 +21,9 @@ const Header = () => {
         source={require('../../assets/heart.png')} />
         </TouchableOpacity>
         <TouchableOpacity>
+          <View style={styles.unreadBages}>
+            <Text style={styles.unreadBageText}>11</Text>
+          </View>
         <Image
         style={styles.icons} 
         source={require('../../assets/messenger.png')} />
@@ -53,6 +56,24 @@ const styles = StyleSheet.create({
      height:25,
      marginLeft:10,
      resizeMode:'contain',
+    },
+    unreadBages:{
+      height:20,
+      width:25,
+      backgroundColor:"#ff3250",
+      position:"absolute",
+      alignItems:'center',
+      justifyContent:'center',
+      left:20,
+      bottom:12,
+      borderRadius:100,
+      zIndex:1,
+    },
+    unreadBageText:{
+      fontSize:12,
+      padding:3,
+      color:"white", 
+      fontWeight:"700",
     }
 })
 

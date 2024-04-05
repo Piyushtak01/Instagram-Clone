@@ -16,7 +16,7 @@ const Stories = () => {
             return(
                 <View style={{alignItems:'center'}}>
                 <Image source={item.image} style={styles.image}/>
-                <Text style={{color:"white"}}>
+                <Text style={{color:"white", fontWeight:'500', marginBottom:10,}}>
                     {
                      item.name.length > 11 ? item.name.slice(0,10).toLowerCase() + '...' 
                      : item.name.toLowerCase() }

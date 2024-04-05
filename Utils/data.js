@@ -1,17 +1,17 @@
   export const USERS = [
     {
         id:1,
-        name:"piyushkumartak",
+        name:"Piyush Tak",
         image: require('../assets/image.png'),
     },
     {
         id:2,
-        name:"Mohikachhwahha",
+        name:"Mohit kachhwahha",
         image: require('../assets/image1.png'),
     },
     {
         id:3,
-        name:"Qaziasdasdasdsa",
+        name:"Qazi",
         image: require('../assets/image5.jpg'),
     },
     {

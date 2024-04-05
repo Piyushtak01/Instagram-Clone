@@ -1,7 +1,10 @@
-import { View, Text ,SafeAreaView, Platform ,StyleSheet } from 'react-native'
+import { View, Text ,SafeAreaView, Platform ,StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import Header from '../Components/Home/Header'
 import Stories from '../Components/Home/Stories'
+import Post from '../Components/Home/Post'
+import { POSTS } from '../Utils/posts'
+
 
 
 const HomeScreen = () => {
@@ -9,6 +12,12 @@ const HomeScreen = () => {
     <SafeAreaView style={[styles.safeArea,styles.container]}>
       <Header/>
        <Stories/>
+       <FlatList
+         data={POSTS}
+         renderItem={({item , index}) => (
+           <Post post={item} key={index}/>
+         )}
+       />
     </SafeAreaView>
   )
 }

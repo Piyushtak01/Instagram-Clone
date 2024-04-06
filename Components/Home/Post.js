@@ -29,9 +29,12 @@ const Post = ({ post }) => {
       <Divider width={1} orientation="vertical" />
       <PostHeader post={post} />
       <PostImage post={post} />
-      <View style={{marginHorizontal:15,marginTop:10,}}>
+      <View style={{ marginHorizontal: 15, marginTop: 10 }}>
         <PostFooter />
-    </View>
+        <Likes post={post}/>
+         <Caption post={post}/>
+         <CommentSection post={post}/>
+      </View>
     </View>
   );
 };
@@ -70,14 +73,46 @@ const PostImage = ({ post }) => (
 );
 
 const PostFooter = () => (
-  <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[0].imageUrl} />
+  <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+    <View style={styles.leftfootericons}>
+    <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[0].imageUrl} />
+    <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[1].imageUrl} />
+    <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[2].imageUrl} />
+    </View>
+    <View>
+      <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[3].imageUrl} />
+    </View>
+  </View>
 );
 
-const Icon = ({ imgStyle, imgUrl }) => {
+const Icon = ({ imgStyle, imgUrl }) => (
   <TouchableOpacity>
     <Image source={imgUrl} style={imgStyle} />
-  </TouchableOpacity>;
-};
+  </TouchableOpacity>
+);
+
+const Likes  = ({post}) => (
+  <View style={{flexDirection:'row', marginTop:4}}>
+ <Text style={{color:'white' , fontWeight:'600'}}>{post.likes.toLocaleString('en')} likes</Text>
+ </View>
+)
+
+
+const Caption = ({post}) => (
+  <View style={{marginTop:5}}>
+    <Text style={{color:'white'}}>
+      <Text style={{fontWeight:'600'}}>{post.User}</Text>
+      <Text> {post.caption}</Text>
+    </Text>
+  </View>
+)
+
+
+const CommentSection = ({post}) => (
+  <Text style ={{color:'gray'}}>
+    {post.Comments.length > 1 ? "comments" : 'comment'}
+  </Text>
+)
 
 const styles = StyleSheet.create({
   story: {
@@ -89,9 +124,15 @@ const styles = StyleSheet.create({
     borderColor: "#ff8501",
   },
   footerIcon: {
-    width: 33,
-    height: 33,
+    width: 25,
+    height: 25,
   },
+
+  leftfootericons:{
+    width:'30%',
+    flexDirection:'row',
+    justifyContent:'space-between'
+  }
 });
 
 export default Post;

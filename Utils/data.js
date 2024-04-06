@@ -1,7 +1,7 @@
   export const USERS = [
     {
         id:1,
-        name:"Piyush Tak",
+        name:"PiyushTak",
         image: require('../assets/image.png'),
     },
     {
